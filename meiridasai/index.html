@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日大赛主题大赛吃瓜-每日大赛吃瓜热点_大赛吃瓜主题合集</title>
+<meta name="description" content="每日大赛主题大赛吃瓜热点聚合首页，按主题汇总大赛吃瓜看点、热门讨论与新鲜话题，帮助访问者快速了解当天大赛吃瓜风向。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2318181f'/%3E%3Cpath d='M14 18h12l6 10 6-10h12L38 46h-4L22 26h-8z' fill='%23ffb347'/%3E%3Ccircle cx='46' cy='44' r='6' fill='%23ff5c6c'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#17171d;
+    --ink-soft:#4b4b57;
+    --paper:#fbf8f3;
+    --card:#ffffff;
+    --line:#e6dfd4;
+    --accent:#ff5c6c;
+    --accent-2:#ffb347;
+    --deep:#241f2b;
+    --radius:16px;
+    --shadow:0 10px 30px rgba(36,31,43,.08);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  .wrap{width:min(1120px,92vw);margin:0 auto}
+
+  /* Header */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,248,243,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-inner{
+    display:flex;align-items:center;gap:24px;
+    padding:14px 0;
+  }
+  .logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .logo .mark{width:38px;height:38px;flex-shrink:0}
+  .logo .brand{
+    font-size:17px;font-weight:800;letter-spacing:.02em;
+    color:var(--deep);line-height:1.2;
+  }
+  nav.main{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+  nav.main a{
+    font-size:14px;font-weight:600;color:var(--ink-soft);
+    padding:7px 12px;border-radius:999px;transition:.2s;
+  }
+  nav.main a:hover{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
+  .nav-toggle{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer}
+  .nav-toggle span{display:block;width:20px;height:2px;background:var(--ink);margin:4px 0;border-radius:2px}
+
+  /* Hero */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(700px 320px at 88% -8%,rgba(255,179,71,.28),transparent 70%),
+      radial-gradient(520px 280px at 4% 10%,rgba(255,92,108,.16),transparent 70%),
+      linear-gradient(180deg,#fffdf9,#fbf8f3);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:44px;
+    align-items:center;padding:56px 0 60px;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12.5px;font-weight:700;letter-spacing:.08em;
+    color:#a03a46;background:#ffe9ec;border:1px solid #ffd2d8;
+    padding:5px 12px;border-radius:999px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+  h1{
+    font-size:clamp(30px,4.3vw,50px);
+    line-height:1.18;font-weight:900;letter-spacing:-.01em;
+    margin:16px 0 18px;color:var(--deep);
+  }
+  h1 .hl{
+    background:linear-gradient(180deg,transparent 62%,rgba(255,179,71,.55) 62%);
+    padding:0 2px;
+  }
+  .lede{font-size:16.5px;color:var(--ink-soft);max-width:34em;margin:0 0 26px}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:15px;font-weight:700;padding:12px 22px;border-radius:12px;
+    transition:.2s;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--deep);color:#fff;box-shadow:0 8px 20px rgba(36,31,43,.22)}
+  .btn-primary:hover{transform:translateY(-2px);background:#000}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--deep)}
+  .btn[aria-disabled="true"]{opacity:.75;cursor:default;pointer-events:none}
+  .hero-stats{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap}
+  .hero-stats b{display:block;font-size:22px;font-weight:900;color:var(--deep)}
+  .hero-stats span{font-size:13px;color:var(--ink-soft)}
+
+  /* Hero visual */
+  .hero-visual{position:relative}
+  .ticket{
+    background:var(--card);border-radius:22px;box-shadow:0 22px 50px rgba(36,31,43,.14);
+    border:1px solid var(--line);padding:20px 22px;position:relative;overflow:hidden;
+  }
+  .ticket::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:6px;
+    background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  }
+  .ticket h3{margin:0 0 4px;font-size:14px;letter-spacing:.08em;color:#a03a46;font-weight:800}
+  .ticket .big{font-size:26px;font-weight:900;color:var(--deep);margin:0 0 14px;line-height:1.3}
+  .topic-row{
+    display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px dashed var(--line);
+    font-size:14px;color:var(--ink-soft);
+  }
+  .topic-row .num{
+    width:22px;height:22px;border-radius:7px;background:#fff3e2;color:#b4652a;
+    font-size:12px;font-weight:800;display:grid;place-items:center;flex-shrink:0;
+  }
+  .topic-row:nth-child(2) .num{background:#ffe9ec;color:#b03a48}
+  .topic-row .t{color:var(--ink);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .topic-row .tag{margin-left:auto;font-size:11.5px;background:#f2eee7;color:#7a7268;padding:2px 8px;border-radius:999px;flex-shrink:0}
+
+  /* Sections */
+  section{padding:56px 0}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:26px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(21px,2.6vw,28px);font-weight:900;color:var(--deep);margin:0;letter-spacing:-.01em}
+  .sec-head p{margin:6px 0 0;font-size:14.5px;color:var(--ink-soft);max-width:44em}
+  .sec-tag{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--accent);text-transform:uppercase}
+
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;box-shadow:var(--shadow);transition:.25s;display:flex;flex-direction:column;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(36,31,43,.12)}
+  .card .ico{
+    width:42px;height:42px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px;
+    background:linear-gradient(135deg,#fff3e2,#ffe9ec);
+  }
+  .card h3{margin:0 0 8px;font-size:17px;font-weight:800;color:var(--deep)}
+  .card p{margin:0;font-size:14.5px;color:var(--ink-soft)}
+  .card .meta{margin-top:14px;font-size:12.5px;color:#8a8378;display:flex;gap:10px;flex-wrap:wrap}
+
+  /* Hot list */
+  .hot-wrap{display:grid;grid-template-columns:1.35fr .65fr;gap:24px;align-items:start}
+  .list{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .list-item{
+    display:flex;gap:16px;padding:18px 20px;border-bottom:1px solid #f1ece3;transition:.2s;
+  }
+  .list-item:last-child{border-bottom:none}
+  .list-item:hover{background:#fffdf8}
+  .rank{
+    font-size:20px;font-weight:900;color:#c9c2b7;width:34px;flex-shrink:0;line-height:1.4;font-style:italic;
+  }
+  .list-item:nth-child(1) .rank{color:var(--accent)}
+  .list-item:nth-child(2) .rank{color:#e08a2e}
+  .list-item:nth-child(3) .rank{color:#b8a04a}
+  .li-body{min-width:0}
+  .li-body h4{margin:0 0 4px;font-size:15.5px;font-weight:800;color:var(--ink)}
+  .li-body p{margin:0;font-size:13.5px;color:var(--ink-soft)}
+  .li-body .chips{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+  .chip{font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:#f4f0e9;color:#7a7268}
+  .chip.warm{background:#ffe9ec;color:#b03a48}
+  .chip.sun{background:#fff3e2;color:#b4652a}
+
+  .side{display:flex;flex-direction:column;gap:20px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+  .panel h3{margin:0 0 12px;font-size:15px;font-weight:800;color:var(--deep)}
+  .panel ul{margin:0;padding:0;list-style:none}
+  .panel li{padding:9px 0;border-bottom:1px dashed #efe9df;font-size:13.5px;color:var(--ink-soft);display:flex;gap:8px}
+  .panel li:last-child{border-bottom:none}
+  .panel li b{color:var(--deep);font-weight:700}
+  .panel li .k{color:var(--accent);font-weight:800;flex-shrink:0}
+
+  /* Filter */
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+  .filters input{
+    flex:1 1 240px;min-width:0;padding:12px 16px;border-radius:12px;border:1px solid var(--line);
+    background:#fff;font-size:14.5px;font-family:inherit;color:var(--ink);outline:none;transition:.2s;
+  }
+  .filters input:focus{border-color:var(--deep);box-shadow:0 0 0 3px rgba(36,31,43,.08)}
+  .filters select{
+    padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;
+    font-size:14.5px;font-family:inherit;color:var(--ink);outline:none;cursor:pointer;
+  }
+  .empty-hint{font-size:14px;color:#8a8378;padding:14px 4px;display:none}
+
+  /* Theme cards */
+  .theme-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .theme-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;box-shadow:var(--shadow);display:flex;gap:18px;align-items:flex-start;
+  }
+  .theme-card .thumb{
+    width:64px;height:64px;border-radius:14px;flex-shrink:0;display:grid;place-items:center;
+    font-size:22px;font-weight:900;color:#fff;background:linear-gradient(135deg,var(--deep),#4a3f57);
+  }
+  .theme-card:nth-child(2) .thumb{background:linear-gradient(135deg,#ff5c6c,#ff9b6a)}
+  .theme-card:nth-child(3) .thumb{background:linear-gradient(135deg,#e08a2e,#ffcf6b)}
+  .theme-card:nth-child(4) .thumb{background:linear-gradient(135deg,#3d6b8f,#7fc4c9)}
+  .theme-card h3{margin:0 0 6px;font-size:16.5px;font-weight:800;color:var(--deep)}
+  .theme-card p{margin:0;font-size:14px;color:var(--ink-soft)}
+  .theme-card .foot{margin-top:10px;font-size:12.5px;color:#8a8378}
+
+  /* Article */
+  .article-box{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:34px clamp(20px,4vw,44px);box-shadow:var(--shadow);
+  }
+  .article-box h2{margin:0 0 18px;font-size:23px;font-weight:900;color:var(--deep)}
+  .article-box h3{margin:26px 0 8px;font-size:16.5px;font-weight:800;color:var(--deep)}
+  .article-box p{margin:0 0 14px;font-size:15px;color:var(--ink-soft)}
+  .article-box .note{
+    border-left:3px solid var(--accent-2);background:#fffaf1;padding:14px 18px;border-radius:0 10px 10px 0;
+    font-size:14px;color:#6d6558;margin:18px 0;
+  }
+
+  /* CTA */
+  .cta{
+    background:linear-gradient(135deg,var(--deep),#3b3247);
+    border-radius:22px;padding:40px clamp(22px,4vw,48px);color:#fff;
+    display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;
+    box-shadow:0 22px 50px rgba(36,31,43,.24);
+  }
+  .cta h2{margin:0 0 8px;font-size:24px;font-weight:900;color:#fff}
+  .cta p{margin:0;font-size:14.5px;color:#cfc7d6;max-width:40em}
+  .cta .btn-primary{background:var(--accent-2);color:#241f2b;box-shadow:0 10px 24px rgba(255,179,71,.3)}
+  .cta .btn-primary:hover{background:#ffc76b}
+  .cta .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+  .cta .btn-ghost:hover{border-color:#fff}
+
+  /* Footer */
+  footer.site{background:#161219;color:#a99fb3;padding:44px 0 30px;margin-top:20px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+  .foot-brand .brand{color:#fff;font-size:16px;font-weight:800;margin-bottom:10px;display:block}
+  .foot-brand p{margin:0;font-size:13.5px;line-height:1.8;color:#8d8299}
+  .foot-col h4{margin:0 0 12px;font-size:13px;font-weight:800;letter-spacing:.08em;color:#fff}
+  .foot-col a{display:block;font-size:13.5px;padding:4px 0;color:#a99fb3;transition:.2s}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{
+    margin-top:32px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#7c7288;
+  }
+
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;gap:32px;padding:40px 0 44px}
+    .hero-visual{order:2}
+    .grid-3{grid-template-columns:1fr}
+    .hot-wrap{grid-template-columns:1fr}
+    .theme-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .foot-brand{grid-column:1/-1}
+  }
+  @media (max-width:640px){
+    nav.main{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      background:#fffdf9;border-bottom:1px solid var(--line);
+      flex-direction:column;padding:12px 4vw;gap:2px;
+      box-shadow:0 16px 30px rgba(36,31,43,.1);
+    }
+    nav.main.open{display:flex}
+    nav.main a{padding:11px 12px;border-radius:10px}
+    .nav-toggle{display:block}
+    .head-inner{position:relative;padding:12px 0}
+    section{padding:40px 0}
+    .hero-stats{gap:18px}
+    .cta{padding:30px 22px}
+    .article-box{padding:26px 20px}
+    .foot-grid{grid-template-columns:1fr}
+    .list-item{padding:16px 14px;gap:12px}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <a class="logo" href="#top" aria-label="每日大赛主题大赛吃瓜 首页">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#241f2b"/>
+        <path d="M14 18h12l6 10 6-10h12L38 46h-4L22 26h-8z" fill="#ffb347"/>
+        <circle cx="46" cy="44" r="6" fill="#ff5c6c"/>
+      </svg>
+      <span class="brand">每日大赛主题大赛吃瓜</span>
+    </a>
+    <button class="nav-toggle" aria-label="展开导航" aria-expanded="false" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main" id="mainNav" aria-label="主导航">
+      <a href="#today">今日看点</a>
+      <a href="#hot">吃瓜热榜</a>
+      <a href="#themes">主题分区</a>
+      <a href="#guide">怎么看</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>当日热点 · 主题聚合</span>
+        <h1 id="hero-title">每日大赛主题大赛吃瓜</h1>
+        <p class="lede">这里把每日大赛主题大赛吃瓜的热点按主题归拢：谁在讨论、争点什么、哪条瓜最值得先看。不追着零散帖子跑，先看主题，再挑细节。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#hot">看今日吃瓜热榜
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#themes">按主题浏览</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>6</b><span>在榜主题</span></div>
+          <div><b>18</b><span>近三日看点</span></div>
+          <div><b>3</b><span>吃瓜维度</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="ticket">
+          <h3>今日主题速览</h3>
+          <p class="big">哪个瓜<br>先吃一口</p>
+          <div class="topic-row"><span class="num">1</span><span class="t">主题选题之争</span><span class="tag">热议</span></div>
+          <div class="topic-row"><span class="num">2</span><span class="t">评审口味分歧</span><span class="tag">新</span></div>
+          <div class="topic-row"><span class="num">3</span><span class="t">评论区神回复</span><span class="tag">乐</span></div>
+          <div class="topic-row"><span class="num">4</span><span class="t">同主题不同命</span><span class="tag">观察</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODAY -->
+  <section id="today" aria-labelledby="today-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">Today</span>
+          <h2 id="today-title">今日吃瓜看点：三条主线</h2>
+          <p>每日大赛主题大赛吃瓜的讨论，通常集中在选题、评审和围观反应三个方向。先分清主线，再决定哪条值得细看。</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b4652a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 2 4-6"/></svg>
+          </div>
+          <h3>选题撞车</h3>
+          <p>多组选手在同一主题下给出相似切口，围观者最容易吵的就是“谁先想到”和“谁讲得更好”。这类瓜的重点在立意差异，不在时间先后。</p>
+          <div class="meta"><span>主题维度</span><span>讨论度 高</span></div>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#b03a48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+          </div>
+          <h3>评审口径</h3>
+          <p>同一份作品，不同评审给出相反判断，吃瓜群众就会追问评分标准。看懂口径，比站队更能看清热闹的来路。</p>
+          <div class="meta"><span>评审维度</span><span>讨论度 中高</span></div>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3d6b8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4L4 21l1.1-4.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+          </div>
+          <h3>评论区反应</h3>
+          <p>神回复往往比正文传播更快。围观情绪里既有真问题，也有玩梗，吃瓜时要能分开看，别被一句高赞带偏节奏。</p>
+          <div class="meta"><span>围观维度</span><span>讨论度 高</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOT LIST -->
+  <section id="hot" aria-labelledby="hot-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">Hot</span>
+          <h2 id="hot-title">吃瓜热榜：按热度排的当日主题</h2>
+          <p>榜单只反映讨论密度，不代表结论。点开一条，先看它属于哪类瓜，再判断值不值得跟。</p>
+        </div>
+      </div>
+
+      <div class="filters">
+        <input type="search" id="hotSearch" placeholder="搜索主题关键词，如选题、评审、评论区" aria-label="搜索吃瓜主题">
+        <select id="hotSelect" aria-label="按类型筛选">
+          <option value="all">全部类型</option>
+          <option value="选题">选题</option>
+          <option value="评审">评审</option>
+          <option value="围观">围观</option>
+        </select>
+      </div>
+      <p class="empty-hint" id="emptyHint">没有匹配的吃瓜主题，换个关键词试试。</p>
+
+      <div class="hot-wrap">
+        <div class="list" id="hotList">
+          <div class="list-item" data-type="选题">
+            <span class="rank">01</span>
+            <div class="li-body">
+              <h4>同题不同解：一个主题被讲出四种味道</h4>
+              <p>同一个主题，有人讲结构、有人讲情绪、有人讲反差。争议点不在创意高低，而在哪种讲法更贴近主题本意。</p>
+              <div class="chips"><span class="chip warm">选题</span><span class="chip">立意差异</span><span class="chip sun">高讨论</span></div>
+            </div>
+          </div>
+          <div class="list-item" data-type="评审">
+            <span class="rank">02</span>
+            <div class="li-body">
+              <h4>评分表被逐条对照，口径差在哪</h4>
+              <p>围观者把公开评分逐项拆开，发现分歧主要落在“完成度”和“表达力”的权重上，而不是总分高低。</p>
+              <div class="chips"><span class="chip warm">评审</span><span class="chip">评分口径</span></div>
+            </div>
+          </div>
+          <div class="list-item" data-type="围观">
+            <span class="rank">03</span>
+            <div class="li-body">
+              <h4>评论区比稿子还长，神回复成了二次看点</h4>
+              <p>一句高赞玩梗把原本冷门的主题带火。热闹之外，也能看出大家对主题边界的理解并不统一。</p>
+              <div class="chips"><span class="chip warm">围观</span><span class="chip">神回复</span><span class="chip sun">传播快</span></div>
+            </div>
+          </div>
+          <div class="list-item" data-type="选题">
+            <span class="rank">04</span>
+            <div class="li-body">
+              <h4>热门主题扎堆，冷门主题反而出彩</h4>
+              <p>当多数人挤向同一个大主题，冷门切口因为新鲜感被围观者记住。这说明主题热度不等于表达优势。</p>
+              <div class="chips"><span class="chip warm">选题</span><span class="chip">冷门切口</span></div>
+            </div>
+          </div>
+          <div class="list-item" data-type="评审">
+            <span class="rank">05</span>
+            <div class="li-body">
+              <h4>“差点意思”到底是差哪一点</h4>
+              <p>评审给出模糊评价，围观者要求说得更具体。这类瓜的价值在于推动评价语言更清楚，而不是争输赢。</p>
+              <div class="chips"><span class="chip warm">评审</span><span class="chip">评价语言</span></div>
+            </div>
+          </div>
+          <div class="list-item" data-type="围观">
+            <span class="rank">06</span>
+            <div class="li-body">
+              <h4>老瓜被翻出来，和今天的主题撞了</h4>
+              <p>旧讨论被重新引用，形成前后对照。看这类瓜，重点是分清当时语境和现在语境，别把旧结论直接套用。</p>
+              <div class="chips"><span class="chip warm">围观</span><span class="chip">旧事重提</span></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="side">
+          <div class="panel">
+            <h3>吃瓜三问</h3>
+            <ul>
+              <li><span class="k">问</span><span><b>说的是主题还是人？</b>先分清讨论对象。</span></li>
+              <li><span class="k">问</span><span><b>有原始材料吗？</b>看得到原文再判断。</span></li>
+              <li><span class="k">问</span><span><b>结论是确定的吗？</b>留出未定的空间。</span></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>围观提醒</h3>
+            <ul>
+              <li><b>别把高赞当结论</b>，热度只是关注度。</li>
+              <li><b>别把旧瓜当新瓜</b>，时间线要看清。</li>
+              <li><b>别把玩梗当事实</b>，语气和内容是两回事。</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEMES -->
+  <section id="themes" aria-labelledby="themes-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">Themes</span>
+          <h2 id="themes-title">主题分区：按瓜的类型找入口</h2>
+          <p>每日大赛主题大赛吃瓜的内容跨度很大，先选分区能少走弯路。每个分区对应一种围观方式。</p>
+        </div>
+      </div>
+      <div class="theme-grid">
+        <article class="theme-card">
+          <div class="thumb">题</div>
+          <div>
+            <h3>选题与立意</h3>
+            <p>看大家怎么理解同一个主题，哪些切口新，哪些只是换了说法。适合想找灵感的读者。</p>
+            <div class="foot">收录方向：主题解读 · 切口对比</div>
+          </div>
+        </article>
+        <article class="theme-card">
+          <div class="thumb">评</div>
+          <div>
+            <h3>评审与标准</h3>
+            <p>关注评分口径、评价语言和反馈方式。适合想弄明白“为什么这么判”的读者。</p>
+            <div class="foot">收录方向：评分逻辑 · 反馈表达</div>
+          </div>
+        </article>
+        <article class="theme-card">
+          <div class="thumb">围</div>
+          <div>
+            <h3>围观与讨论</h3>
+            <p>评论区里的神回复、反转和玩梗。适合想快速感受气氛、又不想被带节奏的读者。</p>
+            <div class="foot">收录方向：高赞回复 · 情绪观察</div>
+          </div>
+        </article>
+        <article class="theme-card">
+          <div class="thumb">档</div>
+          <div>
+            <h3>旧瓜档案</h3>
+            <p>把过去的热点按主题归档，方便和今天的瓜对照。看旧瓜，先看它当时的上下文。</p>
+            <div class="foot">收录方向：往期主题 · 前后对照</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section id="guide" aria-labelledby="guide-title">
+    <div class="wrap">
+      <div class="article-box">
+        <h2 id="guide-title">怎么看每日大赛主题大赛吃瓜，才不白看</h2>
+        <p>吃瓜最容易犯的错，是把讨论热度当成判断依据。一条内容被反复转发，说明它被关注，不等于它说得对。每日大赛主题大赛吃瓜的看点，往往藏在“为什么会有分歧”里，而不是谁的声音更大。</p>
+
+        <h3>第一步：分清是主题的瓜，还是人的瓜</h3>
+        <p>围绕主题本身的讨论，通常涉及立意、切口、表达是否贴合；围绕人的讨论，则容易滑向站队。前者能看出内容差异，后者大多只能看出情绪。先把这两类分开，再决定要不要继续看。</p>
+
+        <h3>第二步：找到原始材料</h3>
+        <p>热榜里的转述常常省略了关键上下文。看到一条说法，先确认它有没有对应的原文、原图或原话。没有原始材料的瓜，可以当作气氛看，但不适合当成事实来引用。这也是每日大赛主题大赛吃瓜里最容易被忽略的一步。</p>
+
+        <div class="note">一个简单的判断法：如果一条瓜只能说清“谁说了什么”，却说不清“在什么情况下说的”，那它大概率还停留在半成品阶段。</div>
+
+        <h3>第三步：给结论留余地</h3>
+        <p>很多争议在当天并没有答案，过几天才会有更完整的说法。把“目前看到的”和“最终确定的”分开记录，既不影响围观乐趣，也能避免之后被反转打脸。每日大赛主题大赛吃瓜的乐趣，本来就在于跟着主题慢慢看清楚。</p>
+
+        <h3>第四步：挑值得跟的主题</h3>
+        <p>不是每条瓜都值得花时间。优先跟那些能提供新信息的：新的主题解读、新的评分说明、新的讨论角度。只是重复情绪的内容，看一条和看十条差别不大。按这个标准筛一遍，每日大赛主题大赛吃瓜会清爽很多。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">FAQ</span>
+          <h2 id="faq-title">常见问题</h2>
+          <p>关于每日大赛主题大赛吃瓜，访问者最常问的几件事。</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <h3>这里的“吃瓜”指什么？</h3>
+          <p>指围绕大赛主题产生的公开讨论与围观反应，包括选题争议、评审口径和评论区互动，不涉及未公开信息。</p>
+        </article>
+        <article class="card">
+          <h3>热榜是怎么排的？</h3>
+          <p>按当日讨论密度和更新频率排序，只表示关注度高低，不代表内容质量或结论正确，也不构成任何判定。</p>
+        </article>
+        <article class="card">
+          <h3>旧瓜还能看吗？</h3>
+          <p>可以。旧瓜归档时会保留当时的语境，方便和今天的主题对照。看旧瓜时注意时间差，别把旧结论直接套用。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section aria-label="订阅提示">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <h2>明天的大赛主题，先存个入口</h2>
+          <p>把每日大赛主题大赛吃瓜放进收藏，热点更新时按主题回看，比在信息流里翻找更省时间。</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#hot">回到热榜</a>
+          <a class="btn btn-ghost" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand">每日大赛主题大赛吃瓜</span>
+        <p>按主题聚合大赛吃瓜看点，帮助访问者分清讨论主线、找到原始材料、给结论留出余地。内容以公开讨论为基础，不替代任何正式结论。</p>
+      </div>
+      <div class="foot-col">
+        <h4>内容分区</h4>
+        <a href="#today">今日看点</a>
+        <a href="#hot">吃瓜热榜</a>
+        <a href="#themes">主题分区</a>
+        <a href="#guide">怎么看</a>
+      </div>
+      <div class="foot-col">
+        <h4>使用提示</h4>
+        <a href="#faq">常见问题</a>
+        <a href="#guide">判断方法</a>
+        <a href="#hot">围观提醒</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>每日大赛主题大赛吃瓜 · 主题首页</span>
+      <span>讨论热度仅供参考</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('mainNav');
+    if(toggle && nav){
+      toggle.addEventListener('click', function(){
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded','false');
+        });
+      });
+    }
+
+    var search = document.getElementById('hotSearch');
+    var select = document.getElementById('hotSelect');
+    var list = document.getElementById('hotList');
+    var hint = document.getElementById('emptyHint');
+    if(list){
+      var items = Array.prototype.slice.call(list.querySelectorAll('.list-item'));
+      function apply(){
+        var q = (search && search.value || '').trim().toLowerCase();
+        var type = select && select.value || 'all';
+        var shown = 0;
+        items.forEach(function(it){
+          var text = it.textContent.toLowerCase();
+          var okType = (type === 'all') || (it.getAttribute('data-type') === type);
+          var okText = !q || text.indexOf(q) !== -1;
+          var show = okType && okText;
+          it.style.display = show ? '' : 'none';
+          if(show) shown++;
+        });
+        if(hint) hint.style.display = shown ? 'none' : 'block';
+      }
+      if(search) search.addEventListener('input', apply);
+      if(select) select.addEventListener('change', apply);
+      apply();
+    }
+  })();
+</script>
+</body>
+                               </html>
